@@ -1,0 +1,100 @@
+Xcursor.theme: Qogir
+Xcursor.size: 12
+
+Xft.autohint: false
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+!Xft.dpi : 106
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+dwm.selbgcolor: #91069c
+dwm.selbordercolor: #91069c
+dwm.selfloatcolor: #91069c
+
+dwm.tagsselbgcolor: #91069c
+dwm.tagsselbordercolor: #91069c
+dwm.tagsselfloatcolor: #91069c
+
+st.font: CaskaydiaCove NF:pixelsize=14:antialias=true:autohint=true
+
+! iterm2 - popping and locking
+st.foreground:   #ebdbb2
+st.background:   #181921
+! st.cursorColor:  #ebdbb2
+st.cursorColor:  #ff2eff
+
+! black
+st.color0:       #1d2021
+st.color8:       #928374
+
+! red
+st.color1:       #cc241d
+st.color9:       #f42c3e
+
+! green
+st.color2:       #98971a
+st.color10:      #b8bb26
+
+! yellow
+st.color3:       #d79921
+st.color11:      #fabd2f
+
+! blue
+st.color4:       #458588
+st.color12:      #99c6ca
+
+! magenta
+st.color5:       #b16286
+st.color13:      #d3869b
+
+! cyan
+st.color6:       #689d6a
+st.color14:      #7ec16e
+
+! white
+st.color7:       #a89984
+st.color15:      #ebdbb2
+
+
+! iterm2 - github dark
+! st.foreground:   #8b949e
+! st.background:   #101216
+! st.cursorColor:  #8b949e
+
+! ! black
+! st.color0:       #000000
+! st.color8:       #4d4d4d
+
+! ! red
+! st.color1:       #f78166
+! st.color9:       #f78166
+
+! ! green
+! st.color2:       #56d364
+! st.color10:      #56d364
+
+! ! yellow
+! st.color3:       #e3b341
+! st.color11:      #e3b341
+
+! ! blue
+! st.color4:       #6ca4f8
+! st.color12:      #6ca4f8
+
+! ! magenta
+! st.color5:       #db61a2
+! st.color13:      #db61a2
+
+! ! cyan
+! st.color6:       #2b7489
+! st.color14:      #2b7489
+
+! ! white
+! st.color7:       #ffffff
+! st.color15:      #ffffff
+
+dmenu.font: RobotoMono Nerd Font:pixelsize=12:antialias=true:autohint=true
+dmenu.selbackground: #91069c

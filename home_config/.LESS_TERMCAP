@@ -1,0 +1,46 @@
+# Less Colors for Man Pages
+# Option 1
+# export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
+# export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
+# # export LESS_TERMCAP_md=$(printf '\e[01;38;5;75m') # enter double-bright mode
+# export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
+# export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode - yellow
+# export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+# export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+# export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
+# # export LESS_TERMCAP_us=$(printf '\e[04;38;5;200m') # enter underline mode
+
+# Option 2
+#     export LESS_TERMCAP_mb=$(tput bold; tput setaf 221)
+#     export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
+#     export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+#     export LESS_TERMCAP_so=$(tput bold; tput setaf 121) # enter standout mode - yellow
+#     export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+#     export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
+#     export LESS_TERMCAP_md=$(tput bold; tput setaf 229)
+#     export LESS_TERMCAP_mr=$(tput rev)
+#     export LESS_TERMCAP_mh=$(tput dim)
+#     export LESS_TERMCAP_ZN=$(tput ssubm)
+#     export LESS_TERMCAP_ZV=$(tput rsubm)
+#     export LESS_TERMCAP_ZO=$(tput ssupm)
+#     export LESS_TERMCAP_ZW=$(tput rsupm)
+
+# Option 3
+# export LESS_TERMCAP_mb=$'\033[01;31m'
+# export LESS_TERMCAP_md=$'\033[01;38;5;74m'
+# export LESS_TERMCAP_me=$'\033[0m'
+# export LESS_TERMCAP_so=$'\033[38;5;227m'
+# export LESS_TERMCAP_se=$'\033[0m'
+# export LESS_TERMCAP_ue=$'\033[0m'
+# export LESS_TERMCAP_us=$'\033[04;38;5;146m'
+
+# Option 4
+export LESS_TERMCAP_mb=$'\e[01;31m' # begin blinking
+export LESS_TERMCAP_md=$'\e[01;35m' # begin bold
+export LESS_TERMCAP_me=$'\e[0m' # end mode
+# export LESS_TERMCAP_so=$'\e[01;46m' # begin standout-mode – info
+# export LESS_TERMCAP_se=$'\e[0m' # end standout-mode
+export LESS_TERMCAP_so=$'\e[01;44;37m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m' # end underline
+export LESS_TERMCAP_us=$'\e[34m' # begin underline

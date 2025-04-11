@@ -1,0 +1,12 @@
+/* Patches */
+#include "alpha.h"
+#include "boxdraw.h"
+#include "opencopied.h"
+#include "font2.h"
+#include "fullscreen_x.h"
+#include "invert.h"
+#include "keyboardselect_x.h"
+#include "netwmicon.h"
+#include "rightclicktoplumb_x.h"
+#include "st_embedder_x.h"
+#include "xresources.h"
