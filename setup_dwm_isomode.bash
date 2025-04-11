@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 username="$1"
 
+curr=$(pwd)
+
 # Clone the repo
 echo "Cloning the EOS DWM repo..."
 git clone https://github.com/haluk/eos-dwm
@@ -75,6 +77,8 @@ for bin_dir in "$BUILD_ROOT"/*/bin; do
 done
 
 # Step 3: Copy scripts
+# Go back to initial folder
+cd "$curr"
 scripts=(wallpaper-changer bashmount)
 
 for script in "${scripts[@]}"; do
@@ -91,9 +95,6 @@ if ! echo "$PATH" | grep -q "$LINK_TARGET"; then
 else
   echo "$LINK_TARGET already in PATH"
 fi
-
-# Go back to initial folder
-cd
 
 # Install lazyvim
 git clone https://github.com/LazyVim/starter /home/${username}/.config/nvim
