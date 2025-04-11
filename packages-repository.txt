@@ -18,3 +18,5 @@ zsh
 neovim
 ttf-cascadia-code-nerd
 ttf-roboto-mono-nerd
+networkmanager-strongswan
+remmina
