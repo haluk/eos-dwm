@@ -92,6 +92,9 @@ else
   echo "$LINK_TARGET already in PATH"
 fi
 
+# Go back to initial folder
+cd
+
 # Install lazyvim
 git clone https://github.com/LazyVim/starter /home/${username}/.config/nvim
 rm -rf /home/${username}/.config/nvim/.git
