@@ -30,3 +30,6 @@ ripgrep
 fd
 vivid
 arc-gtk-theme-eos
+ttf-liberation
+ttf-dejavu
+ttf-roboto
