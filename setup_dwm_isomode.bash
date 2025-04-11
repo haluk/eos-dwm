@@ -13,8 +13,6 @@ pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<./e
 echo "Deploying user configs..."
 rsync -a eos-dwm/.config "/home/${username}/"
 rsync -a eos-dwm/home_config/ "/home/${username}/"
-# Restore user ownership
-chown -R "${username}:${username}" "/home/${username}"
 
 # Copy wallpapers
 rsync -a eos-dwm/wallpapers/ "/home/${username}/Pictures/wallpapers"
@@ -96,6 +94,11 @@ fi
 # Install lazyvim
 git clone https://github.com/LazyVim/starter /home/${username}/.config/nvim
 rm -rf /home/${username}/.config/nvim/.git
+
+# Restore user ownership
+chown -R "${username}:${username}" "/home/${username}"
+chown -R "${username}:${username}" "/home/${username}/.config"
+chown -R "${username}:${username}" "/home/${username}/.local"
 
 # Remove the repo
 echo "Removing the EOS DWM repo..."
