@@ -23,6 +23,7 @@ neovim
 ttf-cascadia-code-nerd
 ttf-roboto-mono-nerd
 ttf-roboto-mono
+ttf-font-awesome
 networkmanager-strongswan
 remmina
 lazygit
