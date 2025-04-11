@@ -18,6 +18,67 @@ chown -R "${username}:${username}" "/home/${username}"
 
 # Copy suckless software
 rsync -a eos-dwm/suckless/ "/home/${username}/sw"
+chown -R "${username}:${username}" "/home/${username}/sw"
+
+SRC_ROOT="$HOME/sw"
+BUILD_ROOT="$HOME/.local/build"
+LINK_TARGET="$HOME/.local/bin"
+
+mkdir -p "$LINK_TARGET"
+
+# Step 1: Discover and build programs automatically
+for dir in "$SRC_ROOT"/*; do
+  [ -d "$dir" ] || continue
+
+  if [ -f "$dir/Makefile" ] || [ -f "$dir/makefile" ]; then
+    prg=$(basename "$dir")
+    echo "Building $prg..."
+
+    cd "$dir" || {
+      echo "Can't cd into $dir"
+      continue
+    }
+
+    # Clean build optional:
+    make clean &>/dev/null
+    rm config.h &>/dev/null
+
+    # Run make and install to ~/.local/build/prg
+    if make && make install PREFIX="$BUILD_ROOT/$prg"; then
+      echo "Installed $prg to $BUILD_ROOT/$prg"
+    else
+      echo "Build or install failed for $prg"
+    fi
+  else
+    echo "No Makefile in $dir — skipping"
+  fi
+done
+
+# Step 2: Link all executables from ~/.local/build/*/bin to ~/.local/bin
+echo "Linking executables to $LINK_TARGET..."
+for bin_dir in "$BUILD_ROOT"/*/bin; do
+  [ -d "$bin_dir" ] || continue
+
+  find "$bin_dir" -type f -executable | while read -r file; do
+    link_name="$LINK_TARGET/$(basename "$file")"
+
+    if [ -e "$link_name" ]; then
+      echo "Skipping existing: $link_name"
+    else
+      ln -s "$file" "$link_name"
+      echo "Linked: $file → $link_name"
+    fi
+  done
+done
+
+# Step 3: Add ~/.local/bin to PATH if needed
+if ! echo "$PATH" | grep -q "$LINK_TARGET"; then
+  echo "Adding $LINK_TARGET to PATH in ~/.bashrc"
+  echo "export PATH=\"$LINK_TARGET:\$PATH\"" >>~/.bashrc
+  echo "Run 'source ~/.bashrc' or restart your terminal to apply the changes."
+else
+  echo "$LINK_TARGET already in PATH"
+fi
 
 # Remove the repo
 echo "Removing the EOS DWM repo..."

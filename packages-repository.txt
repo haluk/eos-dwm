@@ -5,9 +5,12 @@ xorg-xsetroot
 xorg-xrandr
 xclip
 xdg-user-dirs
+gd
+rofi
 picom
 feh
 sxhkd
+wmname
 acpi
 brightnessctl
 dunst
@@ -20,3 +23,7 @@ ttf-cascadia-code-nerd
 ttf-roboto-mono-nerd
 networkmanager-strongswan
 remmina
+lazygit
+fzf
+ripgrep
+fd

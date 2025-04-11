@@ -48,7 +48,7 @@ picom &
 dunst &
 
 # Keybindings
-sxhkd &
+# sxhkd &
 
 # Wallpaper
 # wallpaper-changer &

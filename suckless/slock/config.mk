@@ -4,7 +4,7 @@ VERSION = 1.4
 # Customize below to fit your system
 
 # paths
-PREFIX = $(HOME)/.local/build/dwm
+PREFIX = $(HOME)/.local/build/slock
 MANPREFIX = ${PREFIX}/share/man
 
 X11INC = /usr/include/X11
