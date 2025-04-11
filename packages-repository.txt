@@ -38,3 +38,5 @@ ttf-jetbrains-mono
 ttf-fira-code
 ttf-hack
 adobe-source-code-pro-fonts
+gimp
+libreoffice-fresh
