@@ -20,9 +20,9 @@ chown -R "${username}:${username}" "/home/${username}"
 rsync -a eos-dwm/suckless/ "/home/${username}/sw"
 chown -R "${username}:${username}" "/home/${username}/sw"
 
-SRC_ROOT="$HOME/sw"
-BUILD_ROOT="$HOME/.local/build"
-LINK_TARGET="$HOME/.local/bin"
+SRC_ROOT="/home/${username}/sw"
+BUILD_ROOT="/home/${username}/.local/build"
+LINK_TARGET="/home/${username}/.local/bin"
 
 mkdir -p "$LINK_TARGET"
 
@@ -74,7 +74,7 @@ done
 # Step 3: Add ~/.local/bin to PATH if needed
 if ! echo "$PATH" | grep -q "$LINK_TARGET"; then
   echo "Adding $LINK_TARGET to PATH in ~/.bashrc"
-  echo "export PATH=\"$LINK_TARGET:\$PATH\"" >>~/.bashrc
+  echo "export PATH=\"$LINK_TARGET:\$PATH\"" >>/home/${username}/.bashrc
   echo "Run 'source ~/.bashrc' or restart your terminal to apply the changes."
 else
   echo "$LINK_TARGET already in PATH"
