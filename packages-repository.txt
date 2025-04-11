@@ -27,3 +27,5 @@ lazygit
 fzf
 ripgrep
 fd
+vivid
+arc-gtk-theme-eos
