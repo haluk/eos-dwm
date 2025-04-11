@@ -48,20 +48,15 @@ picom &
 dunst &
 
 # Keybindings
-# sxhkd &
+sxhkd &
 
 # Wallpaper
-# wallpaper-changer &
+wallpaper-changer &
 
 # Problems with Java applications
 wmname LG3D &
 export _JAVA_AWT_WM_NONREPARENTING=1
 # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
-# Emacs
-# emacs --daemon &
-
 # Execute DWM
 exec dwm
-
-#xsetroot -cursor_name left_ptr &

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+while true; do
+        ln -sf $(find -L ~/Pictures/wallpapers -not -path '*/\.*' -type f | shuf -n 1) ~/.wallpaper.png
+        feh --no-fehbg --bg-scale ~/.wallpaper.png &>/dev/null
+        sleep 10m
+done &
+

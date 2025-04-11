@@ -16,6 +16,10 @@ rsync -a eos-dwm/home_config/ "/home/${username}/"
 # Restore user ownership
 chown -R "${username}:${username}" "/home/${username}"
 
+# Copy wallpapers
+rsync -a eos-dwm/wallpapers/ "/home/${username}/Pictures/wallpapers"
+chown -R "${username}:${username}" "/home/${username}/Pictures/wallpapers"
+
 # Copy suckless software
 rsync -a eos-dwm/suckless/ "/home/${username}/sw"
 chown -R "${username}:${username}" "/home/${username}/sw"
@@ -71,7 +75,12 @@ for bin_dir in "$BUILD_ROOT"/*/bin; do
   done
 done
 
-# Step 3: Add ~/.local/bin to PATH if needed
+# Step 3: Copy scripts
+cp eos-dwm/wallpaper-changer "$LINK_TARGET"
+chown ${username}:${username} "$LINK_TARGET"/wallpaper-changer
+chmod +x "$LINK_TARGET"/wallpaper-changer
+
+# Step 4: Add ~/.local/bin to PATH if needed
 if ! echo "$PATH" | grep -q "$LINK_TARGET"; then
   echo "Adding $LINK_TARGET to PATH in ~/.bashrc"
   echo "export PATH=\"$LINK_TARGET:\$PATH\"" >>/home/${username}/.bashrc
@@ -79,6 +88,10 @@ if ! echo "$PATH" | grep -q "$LINK_TARGET"; then
 else
   echo "$LINK_TARGET already in PATH"
 fi
+
+# Install lazyvim
+git clone https://github.com/LazyVim/starter /home/${username}/.config/nvim
+rm -rf /home/${username}/.config/nvim/.git
 
 # Remove the repo
 echo "Removing the EOS DWM repo..."

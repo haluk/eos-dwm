@@ -40,3 +40,7 @@ ttf-hack
 adobe-source-code-pro-fonts
 gimp
 libreoffice-fresh
+network-manager-applet
+filezilla
+blueman
+arandr
