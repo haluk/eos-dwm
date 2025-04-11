@@ -15,6 +15,7 @@ rsync -a eos-dwm/.config "/home/${username}/"
 rsync -a eos-dwm/home_config/ "/home/${username}/"
 
 # Copy wallpapers
+mkdir -p /home/${username}/Pictures/wallpapers
 rsync -a eos-dwm/wallpapers/ "/home/${username}/Pictures/wallpapers"
 chown -R "${username}:${username}" "/home/${username}/Pictures/wallpapers"
 
