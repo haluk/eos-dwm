@@ -21,6 +21,7 @@ zsh
 neovim
 ttf-cascadia-code-nerd
 ttf-roboto-mono-nerd
+ttf-roboto-mono
 networkmanager-strongswan
 remmina
 lazygit
