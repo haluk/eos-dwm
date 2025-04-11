@@ -33,3 +33,7 @@ arc-gtk-theme-eos
 ttf-liberation
 ttf-dejavu
 ttf-roboto
+ttf-jetbrains-mono
+ttf-fira-code
+ttf-hack
+adobe-source-code-pro-fonts
