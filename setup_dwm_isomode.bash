@@ -76,9 +76,13 @@ for bin_dir in "$BUILD_ROOT"/*/bin; do
 done
 
 # Step 3: Copy scripts
-cp eos-dwm/wallpaper-changer "$LINK_TARGET"
-chown ${username}:${username} "$LINK_TARGET"/wallpaper-changer
-chmod +x "$LINK_TARGET"/wallpaper-changer
+scripts=(wallpaper-changer bashmount)
+
+for script in "${scripts[@]}"; do
+    cp "eos-dwm/$script" "$LINK_TARGET"
+    chown "${username}:${username}" "$LINK_TARGET/$script"
+    chmod +x "$LINK_TARGET/$script"
+done
 
 # Step 4: Add ~/.local/bin to PATH if needed
 if ! echo "$PATH" | grep -q "$LINK_TARGET"; then

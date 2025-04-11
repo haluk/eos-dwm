@@ -44,3 +44,6 @@ network-manager-applet
 filezilla
 blueman
 arandr
+udisks2
+aria2
+libgccjit
