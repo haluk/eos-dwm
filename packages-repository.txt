@@ -3,6 +3,7 @@ xorg-xinit
 xf86-video-intel
 xorg-xsetroot
 xorg-xrandr
+xorg-xrdb
 xclip
 xdg-user-dirs
 gd
