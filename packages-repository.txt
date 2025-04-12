@@ -53,3 +53,4 @@ atool
 zip
 7zip
 freerdp
+starship
