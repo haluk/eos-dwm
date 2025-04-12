@@ -48,3 +48,7 @@ arandr
 udisks2
 aria2
 libgccjit
+nnn
+atool
+zip
+7zip
