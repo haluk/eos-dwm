@@ -10,3 +10,12 @@ sudo systemctl start docker
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 newgrp docker
+# store resources on home
+mkdir $HOME/.docker
+sudo systemctl stop docker
+sudo mv /var/lib/docker $HOME/.docker/data
+sudo mkdir /etc/docker
+DATA_ROOT="${HOME}/.docker/data"
+echo "{
+  \"data-root\": \"${DATA_ROOT}\"
+}" | sudo tee /etc/docker/daemon.json > /dev/null
