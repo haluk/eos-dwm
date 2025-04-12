@@ -58,3 +58,4 @@ imagemagick
 shellcheck
 pandoc
 direnv
+lsd
