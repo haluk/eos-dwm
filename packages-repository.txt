@@ -57,3 +57,4 @@ libotf
 imagemagick
 shellcheck
 pandoc
+direnv
