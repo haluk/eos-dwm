@@ -54,3 +54,4 @@ zip
 7zip
 freerdp
 libotf
+imagemagick
