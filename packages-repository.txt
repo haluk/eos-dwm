@@ -56,3 +56,4 @@ freerdp
 libotf
 imagemagick
 shellcheck
+pandoc
