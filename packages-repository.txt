@@ -61,3 +61,4 @@ direnv
 lsd
 python-pygments
 pass
+uv
