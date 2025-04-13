@@ -10,7 +10,7 @@ sudo systemctl start docker
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 newgrp docker
-# store resources on home
+## store resources on home
 mkdir $HOME/.docker
 sudo systemctl stop docker
 sudo mv /var/lib/docker $HOME/.docker/data
@@ -18,7 +18,7 @@ sudo mkdir /etc/docker
 DATA_ROOT="${HOME}/.docker/data"
 echo "{
   \"data-root\": \"${DATA_ROOT}\"
-}" | sudo tee /etc/docker/daemon.json > /dev/null
+}" | sudo tee /etc/docker/daemon.json >/dev/null
 
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -34,3 +34,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/yuhonas/zsh-aliases-lsd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-aliases-lsd
 mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nnn
 curl -o ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nnn/_nnn https://raw.githubusercontent.com/jarun/nnn/master/misc/auto-completion/zsh/_nnn
+
+# sdkman
+curl -s "https://get.sdkman.io" | bash

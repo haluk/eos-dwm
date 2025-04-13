@@ -11,9 +11,6 @@ else
     compinit -C
 fi
 
-export EDITOR="nvim"
-export VISUAL="nvim
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_COLORIZE_TOOL=pygmentize
@@ -89,6 +86,8 @@ function _load_ssh_agent() {
 autoload -U add-zsh-hook
 add-zsh-hook precmd _load_ssh_agent
 
+export GPG_TTY=$(tty)
+
 export LS_COLORS="$(vivid generate one-dark)"
 zstyle ':completion:*:default' list-colors "$LS_COLORS"
 export DOCKER_USER="$(id -u):$(id -g)"
@@ -97,3 +96,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Source aliases last
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
