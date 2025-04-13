@@ -11,6 +11,9 @@ else
     compinit -C
 fi
 
+export EDITOR="nvim"
+export VISUAL="nvim
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_COLORIZE_TOOL=pygmentize
