@@ -37,6 +37,7 @@ ttf-dejavu
 ttf-roboto
 ttf-jetbrains-mono
 ttf-fira-code
+ttf-fira-sans
 ttf-hack
 adobe-source-code-pro-fonts
 gimp

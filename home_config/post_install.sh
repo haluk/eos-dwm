@@ -37,3 +37,6 @@ curl -o ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nnn/_nnn https://raw.githubus
 
 # sdkman
 curl -s "https://get.sdkman.io" | bash
+
+# visidata
+uv tool install visidata
