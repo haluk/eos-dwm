@@ -18,10 +18,7 @@ ZSH_COLORIZE_STYLE="default"
 
 ZSH_THEME="spaceship"
 
-SPACESHIP_DIR_PREFIX="%{$fg[blue]%}┌─[%b "
-SPACESHIP_DIR_SUFFIX="%{$fg[blue]%} ] "
-SPACESHIP_CHAR_SYMBOL="%{$fg[blue]%}└─λ%b "
-
+SPACESHIP_CHAR_SYMBOL="%{$fg[blue]%}λ%b "
 SPACESHIP_PROMPT_ORDER=(
   dir
   user
