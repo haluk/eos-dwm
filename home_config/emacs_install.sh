@@ -59,3 +59,16 @@ echo "✅ Emacs 30.1 built and installed to $PREFIX"
 git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.config/emacs"
 "$HOME"/.config/emacs/bin/doom install
 mkdir "$HOME/org" "$HOME/notes"
+
+# doom doctor
+yay -S cljfmt-bin
+
+uv tool install rstfmt black pyflakes isort pipenv nose pytest
+
+go install github.com/jessfraz/dockfmt@latest
+ln -s "$HOME/go/bin/dockfmt" "$HOME/.local/bin"
+
+raco pkg install fmt
+
+opam init
+opam install merlin utop ocp-indent dune ocamlformat

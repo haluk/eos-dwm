@@ -11,9 +11,9 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 newgrp docker
 ## store resources on home
-mkdir $HOME/.docker
+mkdir "$HOME/.docker"
 sudo systemctl stop docker
-sudo mv /var/lib/docker $HOME/.docker/data
+sudo mv /var/lib/docker "$HOME/.docker/data"
 sudo mkdir /etc/docker
 DATA_ROOT="${HOME}/.docker/data"
 echo "{

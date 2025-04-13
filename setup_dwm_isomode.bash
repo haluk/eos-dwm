@@ -79,7 +79,7 @@ done
 # Step 3: Copy scripts
 # Go back to initial folder
 cd "$curr"
-scripts=(wallpaper-changer bashmount)
+scripts=(wallpaper-changer bashmount maimpick editor)
 
 for script in "${scripts[@]}"; do
     cp "eos-dwm/$script" "$LINK_TARGET"
