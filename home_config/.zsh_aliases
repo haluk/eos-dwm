@@ -1,3 +1,4 @@
 alias vim="nvim"
 alias copy="awk 'NR==1 { out=\$0; next } { out=out ORS \$0 } END { sub(/\n$/, \"\", out); printf \"%s\", out }' | xclip -selection clipboard"
 alias dc="docker-compose"
+alias lg="lazygit"
