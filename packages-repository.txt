@@ -80,3 +80,4 @@ xdotool
 prettier
 racket
 opam
+speech-dispatcher
