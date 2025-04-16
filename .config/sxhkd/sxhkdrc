@@ -1,7 +1,11 @@
 # Increase brightness by 10%
 ctrl + alt + b
-    brightnessctl set +10%
+  brightnessctl set +10%
 
 # Decrease brightness by 10%
 ctrl + alt + shift + b
-    brightnessctl set 10%-
+  brightnessctl set 10%-
+
+# launch nnn
+super + bracketleft
+  st -e nnn

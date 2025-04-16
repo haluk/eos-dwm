@@ -25,7 +25,7 @@ export MAKEFLAGS="-j$(nproc)"
   --prefix="$PREFIX" \
   --with-native-compilation \
   --with-x \
-  --with-x-toolkit=no \
+  --with-x-toolkit=gtk3 \
   --with-modules \
   --with-json \
   --with-threads \

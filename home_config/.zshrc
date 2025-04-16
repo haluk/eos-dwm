@@ -13,6 +13,9 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 ZSH_COLORIZE_TOOL=pygmentize
 ZSH_COLORIZE_STYLE="default"
 
@@ -40,6 +43,7 @@ SPACESHIP_PROMPT_ORDER=(
 plugins=(
   colored-man-pages
   colorize
+  direnv
   docker
   docker-compose
   extract
@@ -77,7 +81,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 function _load_ssh_agent() {
     if [ -z "$SSH_AUTH_SOCK" ]; then
         eval "$(ssh-agent -s)" > /dev/null
-        ssh-add ~/.ssh/id_github_sign_and_auth 2>/dev/null
+        ssh-add ~/.ssh/id_ed25519 2>/dev/null
     fi
 }
 autoload -U add-zsh-hook
@@ -91,8 +95,11 @@ export DOCKER_USER="$(id -u):$(id -g)"
 
 export PATH=$PATH:$HOME/.local/bin
 
-# Source aliases last
+# Source aliases
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
+# Source aliases
+[ -f ~/.zsh_functions ] && source ~/.zsh_functions
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

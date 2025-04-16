@@ -1,0 +1,11 @@
+copy() {
+  if [ -t 0 ]; then
+    # Called with an argument (e.g., copy myfile.txt)
+    content=$(<"$1")
+  else
+    # Piped input (e.g., cat file | copy)
+    content=$(cat)
+  fi
+  printf "%s" "$content" | xclip -selection clipboard
+}
+
