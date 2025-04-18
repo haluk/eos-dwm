@@ -87,3 +87,5 @@ jq
 ttf-roboto-mono-nerd
 ttf-nerd-fonts-symbols-mono
 gnutls
+libxcrypt-compat
+unixodbc
