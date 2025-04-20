@@ -48,6 +48,12 @@ enum glyph_attribute {
 	ATTR_BOLD_FAINT = ATTR_BOLD | ATTR_FAINT,
 };
 
+enum drawing_mode {
+	DRAW_NONE = 0,
+	DRAW_BG   = 1 << 0,
+	DRAW_FG   = 1 << 1,
+};
+
 /* Used to control which screen(s) keybindings and mouse shortcuts apply to. */
 enum screen {
 	S_PRI = -1, /* primary screen */
