@@ -8,4 +8,17 @@ copy() {
   fi
   printf "%s" "$content" | xclip -selection clipboard
 }
+infer_align() {
+  file="$1"
+  delim=$(head -n 1 "$file" | \
+    awk 'BEGIN{FS=""} {
+      for (i = 1; i <= NF; i++) {
+        if ($i ~ /[\t,;|]/) freq[$i]++
+      }
+      max = 0
+      for (k in freq) if (freq[k] > max) { max = freq[k]; best = k }
+      print best
+    }')
 
+  awk -v FS="$delim" 'BEGIN { OFS="\t" } { print $0 }' "$file" | column -t -s $'\t'
+}

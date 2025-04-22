@@ -52,6 +52,7 @@ plugins=(
   ssh-agent
   pass
   nnn
+  zsh-vi-mode
   zsh-autosuggestions
   zsh-aliases-lsd
   zsh-completions
