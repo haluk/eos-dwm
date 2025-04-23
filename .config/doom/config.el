@@ -21,7 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "RobotoMono Nerd Font" :size 13 :weight 'semi-light)
+;; (setq doom-font (font-spec :family "RobotoMono Nerd Font" :size 13 :weight 'semi-light)
+(setq doom-font (font-spec :family "Reddit Mono" :size 14 :weight 'regular)
      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13 :weight 'light))
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -75,9 +76,44 @@
 ;; they are implemented.
 
 ;; literate config can start from here
+;; UI
 ;; (setq fancy-splash-image (concat doom-user-dir "assets/lambda-logo-white.png"))
+(if (not (display-graphic-p))
+    (setq doom-modeline-icon nil))  ;; Disable icons in terminal
+;; (custom-set-faces
+;;   '(mode-line ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95))))
+;;   '(mode-line-active ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))) ; For 29+
+;;   '(mode-line-inactive ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))))
+(add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
+
+;; PL
+(use-package uv-mode
+  :hook (python-mode . uv-mode-auto-activate-hook))
+
+;; Tools
 (setq deft-directory "~/notes")
 
+;; VCS
 ;; magit modeline branch refresh
 (setq auto-revert-check-vc-info t)
-(add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
+
+;; LLM
+(defun llms-chat--api-key-from-auth-source (host)
+  (when-let* ((api-key (auth-source-pick-first-password :host host :user "apikey")))
+    (encode-coding-string api-key 'utf-8)))
+
+;; Groq
+(defvar llms-chat-gptel-groq-backend
+  (gptel-make-openai "Groq"
+    :host "api.groq.com"
+    :endpoint "/openai/v1/chat/completions"
+    :stream t
+    :key (lambda () (llms-chat--api-key-from-auth-source "api.groq.com"))
+    :models '(llama-3.3-70b-versatile
+              llama-3.1-8b-instant
+              llama3-70b-8192
+              llama3-8b-8192
+              mixtral-8x7b-32768
+              gemma-7b-it)))
+
+(setq gptel-backend llms-chat-gptel-groq-backend)

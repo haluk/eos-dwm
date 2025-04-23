@@ -56,3 +56,4 @@
 (package! evil-matchit)
 (package! sicp)
 (package! uv-mode)
+(package! gptel :recipe (:nonrecursive t))
