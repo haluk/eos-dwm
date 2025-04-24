@@ -98,3 +98,7 @@ st.color15:      #ebdbb2
 
 dmenu.font: RobotoMono Nerd Font:pixelsize=12:antialias=true:autohint=true
 dmenu.selbackground: #91069c
+
+Emacs.default.font: Reddit Mono
+
+Emacs.default.attributeHeight: 95
