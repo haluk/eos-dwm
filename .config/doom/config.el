@@ -76,6 +76,8 @@
 ;; they are implemented.
 
 ;; literate config can start from here
+;; keybindings
+(load! "keybindings")
 ;; UI
 ;; (setq fancy-splash-image (concat doom-user-dir "assets/lambda-logo-white.png"))
 (if (not (display-graphic-p))
