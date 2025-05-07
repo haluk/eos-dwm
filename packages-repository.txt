@@ -91,3 +91,4 @@ gnutls
 libxcrypt-compat
 unixodbc
 fx
+fastfetch
