@@ -16,6 +16,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# cursor style
+echo -ne '\e[1 q'
+
 ZSH_COLORIZE_TOOL=pygmentize
 ZSH_COLORIZE_STYLE="default"
 
