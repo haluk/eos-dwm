@@ -51,8 +51,9 @@ plugins=(
   zsh-history-substring-search
   ssh-agent
   pass
+  jq
   nnn
-  zsh-vi-mode
+  # zsh-vi-mode
   zsh-autosuggestions
   zsh-aliases-lsd
   zsh-completions

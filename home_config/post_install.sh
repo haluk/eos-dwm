@@ -33,6 +33,7 @@ git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/yuhonas/zsh-aliases-lsd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-aliases-lsd
 git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+git clone https://github.com/reegnz/jq-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/jq
 mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nnn
 curl -o ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nnn/_nnn https://raw.githubusercontent.com/jarun/nnn/master/misc/auto-completion/zsh/_nnn
 
