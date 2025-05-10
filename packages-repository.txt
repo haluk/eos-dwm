@@ -92,3 +92,9 @@ libxcrypt-compat
 unixodbc
 fx
 fastfetch
+odt2txt
+catdoc
+html2text
+w3m
+elinks
+lesspipe

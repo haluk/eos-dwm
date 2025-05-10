@@ -19,6 +19,9 @@ export VISUAL="nvim"
 # cursor style
 echo -ne '\e[1 q'
 
+export LESSOPEN="| /usr/bin/lesspipe.sh %s"
+export LESS_ADVANCED_PREPROCESSOR=1
+
 ZSH_COLORIZE_TOOL=pygmentize
 ZSH_COLORIZE_STYLE="default"
 
