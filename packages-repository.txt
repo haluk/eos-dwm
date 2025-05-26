@@ -98,3 +98,4 @@ html2text
 w3m
 elinks
 lesspipe
+tk

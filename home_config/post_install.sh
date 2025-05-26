@@ -1,4 +1,4 @@
-yay -S ttf-symbola ttf-joypixels slack-desktop zoom
+yay -S ttf-symbola ttf-joypixels slack-desktop zoom brave-beta-bin sioyek-git
 
 sudo sed -i 's/^#\(export FREETYPE_PROPERTIES="truetype:interpreter-version=40"\)/\1/' /etc/profile.d/freetype2.sh
 
