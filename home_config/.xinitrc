@@ -49,6 +49,10 @@ dunst &
 # Keybindings
 sxhkd &
 
+# Mouse
+xinput --set-prop "pointer:Meetion Wireless" "libinput Accel Speed" -0.25 &
+imwheel -b "45" &
+
 # Wallpaper
 wallpaper-changer &
 

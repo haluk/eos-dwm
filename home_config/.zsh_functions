@@ -8,7 +8,8 @@ copy() {
   fi
   printf "%s" "$content" | xclip -selection clipboard
 }
-infer_align() {
+
+align() {
   file="$1"
   delim=$(head -n 1 "$file" | \
     awk 'BEGIN{FS=""} {
