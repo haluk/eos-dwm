@@ -103,3 +103,5 @@ gcc-fortran
 openblas
 openblas-lapack
 imwheel
+dos2unix
+trash-cli
