@@ -15,6 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+export PYTHONBREAKPOINT="ipdb.set_trace"
 
 # cursor style
 echo -ne '\e[1 q'
