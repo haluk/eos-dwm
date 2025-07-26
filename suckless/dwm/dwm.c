@@ -652,6 +652,7 @@ buttonpress(XEvent *e)
 			);
 		}
 	}
+
 }
 
 void
@@ -1922,6 +1923,7 @@ restack(Monitor *m)
 		return;
 	if (m->sel->isfloating || !m->lt[m->sellt]->arrange)
 		XRaiseWindow(dpy, m->sel->win);
+
 	if (m->lt[m->sellt]->arrange) {
 		wc.stack_mode = Below;
 		if (m->bar) {

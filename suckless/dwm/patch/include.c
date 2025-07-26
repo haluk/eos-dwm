@@ -14,6 +14,7 @@
 #include "bar_systray.c"
 
 /* Other patches */
+#include "recttoclient.c"
 #include "cfacts.c"
 #include "cmdcustomize.c"
 #include "cool_autostart.c"
