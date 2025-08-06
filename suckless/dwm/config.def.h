@@ -27,7 +27,7 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_NONE;
-static const char *fonts[]               = { "Roboto Mono:size=10:antialias=true:autohint=true:style=regular", "FontAwesome 7 Free:size=8:antialias=true:autohing:true:style=Solid", "Font Awesome 7 Brands:size=8:antialias=true:autohint=true:style=Regular" };
+static const char *fonts[]               = { "Roboto Mono:size=10:antialias=true:autohint=true:style=regular", "Font Awesome 7 Free:size=8:antialias=true:autohing:true:style=Solid", "Font Awesome 7 Brands:size=8:antialias=true:autohint=true:style=Regular" };
 static const char dmenufont[]            = "Roboto Mono:size=10:antialias=true:autohint=true:style=regular";
 
 static char c000000[]                    = "#000000"; // placeholder value
