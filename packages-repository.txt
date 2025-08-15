@@ -105,3 +105,7 @@ openblas-lapack
 imwheel
 dos2unix
 trash-cli
+lshw
+nushell
+just
+difftastic
