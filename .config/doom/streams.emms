@@ -1,0 +1,9 @@
+;;; This is an EMMS playlist file
+
+((*track* (type . streamlist) (name . "http://stream.radioparadise.com/mp3-192") (metadata "Radio Paradise: Main Mix" "http://stream.radioparadise.com/mp3-192" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/mellow-192") (metadata "Radio Paradise: Mellow Mix" "http://stream.radioparadise.com/mellow-192" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/rock-192") (metadata "Radio Paradise: Rock Mix" "http://stream.radioparadise.com/rock-192" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/global-192") (metadata "Radio Paradise: Global Mix" "http://stream.radioparadise.com/global-192" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/beyond-192") (metadata "Radio Paradise: Beyond" "http://stream.radioparadise.com/beyond-192" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/serenity") (metadata "Radio Paradise: Serenity" "http://stream.radioparadise.com/serenity" 1 streamlist))
+(*track* (type . streamlist) (name . "http://stream.radioparadise.com/radio2050-192") (metadata "Radio Paradise: Radio 2050" "http://stream.radioparadise.com/radio2050-192" 1 streamlist)))

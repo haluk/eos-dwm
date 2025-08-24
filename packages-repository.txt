@@ -109,3 +109,6 @@ lshw
 nushell
 just
 difftastic
+yq
+cpupower
+lm_sensors

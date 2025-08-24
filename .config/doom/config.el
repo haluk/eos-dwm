@@ -78,6 +78,7 @@
 ;; literate config can start from here
 ;; keybindings
 (load! "keybindings")
+
 ;; UI
 ;; (setq fancy-splash-image (concat doom-user-dir "assets/lambda-logo-white.png"))
 (if (not (display-graphic-p))
@@ -88,16 +89,71 @@
 ;;   '(mode-line-inactive ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))))
 (add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
 
+(defun g-screenshot-on-buffer-creation ()
+  (setq display-fill-column-indicator-column nil)
+  (setq line-spacing nil))
+
+(use-package screenshot
+
+  :config
+  (setq screenshot-line-numbers-p nil)
+
+  (setq screenshot-min-width 80)
+  (setq screenshot-max-width 80)
+  (setq screenshot-truncate-lines-p nil)
+
+  (setq screenshot-text-only-p nil)
+
+  (setq screenshot-font-family "Reddit Mono")
+  (setq screenshot-font-size 10)
+
+  (setq screenshot-border-width 16)
+  (setq screenshot-radius 0)
+
+  (setq screenshot-shadow-radius 0)
+  (setq screenshot-shadow-offset-horizontal 0)
+  (setq screenshot-shadow-offset-vertical 0)
+
+  :hook
+  ((screenshot-buffer-creation-hook . g-screenshot-on-buffer-creation)))
+
+;; RSS
+(after! elfeed
+  (setq elfeed-search-filter "@2-weeks-ago +unread")
+  (setq elfeed-sort-order 'descending)
+  (setq elfeed-search-title-max-width 100)
+  (setq elfeed-search-title-min-width 30)
+  (setq elfeed-search-trailing-width 25)
+  (setq elfeed-show-truncate-long-urls t)
+  (setq elfeed-goodies/entry-pane-position 'bottom))
+(add-hook! 'elfeed-search-mode-hook 'elfeed-update)
+
+;;Editor
+(global-evil-matchit-mode 1)
+(lsp-treemacs-sync-mode 1)
+
 ;; PL
 (use-package uv-mode
   :hook (python-mode . uv-mode-auto-activate-hook))
 
+;; hurl
+(add-to-list 'auto-mode-alist '("\\.hurl\\'" . hurl-mode))
+
+;; typescript
+(after! ts-fold
+  (setf (alist-get 'typescript-tsx-mode ts-fold-range-alist)
+        (alist-get 'typescript-ts-mode ts-fold-range-alist)))
+
 ;; Tools
-(setq deft-directory "~/notes")
+(defvar emms-mode-line-icon-color "white")
+
+(after! lsp-mode
+  (setq lsp-auto-guess-root t))
 
 ;; VCS
 ;; magit modeline branch refresh
 (setq auto-revert-check-vc-info t)
+(setq left-margin-width 0)
 
 ;; LLM
 (defun llms-chat--api-key-from-auth-source (host)
