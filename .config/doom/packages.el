@@ -56,4 +56,6 @@
 (package! evil-matchit)
 (package! sicp)
 (package! uv-mode)
-(package! gptel :recipe (:nonrecursive t))
+(package! screenshot
+  :recipe (:host github :repo "tecosaur/screenshot"))
+(package! hurl-mode :recipe (:host github :repo "jaszhe/hurl-mode" :files ("*.el")))

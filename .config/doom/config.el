@@ -88,6 +88,12 @@
 ;;   '(mode-line-active ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))) ; For 29+
 ;;   '(mode-line-inactive ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))))
 (add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
+;; ace-window font face
+(custom-set-faces!
+  '(aw-leading-char-face
+    :foreground "white" :background "purple"
+    :weight bold :height 2.5 :box (:line-width 10 :color "purple")))
+
 
 (defun g-screenshot-on-buffer-creation ()
   (setq display-fill-column-indicator-column nil)
