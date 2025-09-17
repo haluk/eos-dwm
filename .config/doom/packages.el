@@ -48,6 +48,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
+(package! tldr)
 (package! windresize)
 (package! bool-flip)
 (package! link-hint)

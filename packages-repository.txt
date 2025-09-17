@@ -112,3 +112,4 @@ difftastic
 yq
 cpupower
 lm_sensors
+lazydocker
