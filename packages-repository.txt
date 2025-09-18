@@ -113,3 +113,4 @@ yq
 cpupower
 lm_sensors
 lazydocker
+tree-sitter-cli
