@@ -17,6 +17,8 @@ function keys.get_keys()
     { mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
     { mods = "LEADER", key = "[", action = wezterm.action.ActivateCopyMode },
     { mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
+    { mods = "CTRL|SHIFT", key = "n", action = wezterm.action.EmitEvent("theme_next") },
+    { mods = "CTRL|SHIFT", key = "p", action = wezterm.action.EmitEvent("theme_prev") },
   }
 end
 

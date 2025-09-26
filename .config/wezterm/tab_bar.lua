@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local colors = require("colors")
+local theme_command = require("commands.toggle_theme")
 local tab_bar = {}
 
 function tab_bar.apply(config)
@@ -33,6 +34,11 @@ function tab_bar.apply(config)
       { Text = " " .. display_text .. " " },
     }
   end)
+
+  -- Right status bar: show current theme
+  -- wezterm.on("update-right-status", function(window, _)
+    -- window:set_right_status("Theme: " .. theme_command.get_current_theme())
+  -- end)
 end
 
 return tab_bar

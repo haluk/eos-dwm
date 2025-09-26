@@ -8,8 +8,10 @@ local tab_bar = require("tab_bar")
 local window = require("window")
 local gpu = require("gpu")
 local qol = require("qol")
+local commands = require("commands")
 
 local config = wezterm.config_builder()
+config.term = "xterm-256color"
 
 -- Performance
 config.max_fps = 120
@@ -42,5 +44,10 @@ window.apply(config)
 
 -- QoL / tmux-like
 qol.apply(config)
+
+-- Custom commands
+wezterm.on("augment-command-palette", function()
+  return commands
+end)
 
 return config

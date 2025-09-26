@@ -1,5 +1,7 @@
 local colors = {}
 
+colors.current_scheme_name = "Kibble"
+
 -- Base16 OneDark colors
 colors.onedark = {
   base00 = "#282c34",
@@ -22,7 +24,9 @@ colors.onedark = {
 
 function colors.apply(config)
   -- Use the built-in OneDark for general scheme
-  config.color_scheme = "OneDark (base16)"
+  config.color_scheme = colors.current_scheme_name
+  -- config.color_scheme = "Monokai Vivid"
+  -- config.color_scheme = "ayu"
 
   -- Set cursor colors
   config.colors = config.colors or {}
