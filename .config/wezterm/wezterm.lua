@@ -29,6 +29,11 @@ config.font = wezterm.font_with_fallback(font.get_all_fonts())
 config.font_size = font.get_font_size()
 config.harfbuzz_features = font.get_harfbuzz_features()
 
+-- Freetype rendering tweaks
+config.freetype_load_target = "Light"          -- or try "Normal"
+config.freetype_load_flags = "NO_HINTING"      -- or "FORCE_AUTOHINT"
+config.freetype_render_target = "HorizontalLcd"
+
 -- Colors
 colors.apply(config)
 

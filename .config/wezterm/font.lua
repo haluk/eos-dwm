@@ -1,7 +1,9 @@
 local font = {}
 
 function font.get_font()
-  return { "CaskaydiaCove NF" }
+  return {
+    { family = "CaskaydiaCove NF", weight = "Bold" } -- you can use "Bold", "Regular", "Light", etc.
+  }
 end
 
 function font.get_fallback_fonts()
@@ -21,7 +23,7 @@ function font.get_font_size()
 end
 
 function font.get_harfbuzz_features()
-  return { "calt=1", "clig=1", "liga=1" }   -- enable ligatures
+  return { "kern=0","calt=1", "clig=1", "dlig=1", "liga=1" } -- enable ligatures
 end
 
 return font
