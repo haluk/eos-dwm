@@ -117,3 +117,4 @@ tree-sitter-cli
 chezmoi
 gitleaks
 webkitgtk-6.0
+atuin
