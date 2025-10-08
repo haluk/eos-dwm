@@ -114,5 +114,6 @@ cpupower
 lm_sensors
 lazydocker
 tree-sitter-cli
-stow
-wezterm
+chezmoi
+gitleaks
+webkitgtk-6.0
