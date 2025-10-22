@@ -1540,13 +1540,6 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 
 	/* Clean up the region we want to draw to. */
 
-	/* Set the clip region because Xft is sometimes dirty. */
-	r.x = 0;
-	r.y = 0;
-	r.height = win.ch;
-	r.width = width;
-	XftDrawSetClipRectangles(xw.draw, winx, winy, &r, 1);
-
 	/* Fill the background */
 	XftDrawRect(xw.draw, bg, winx, winy, width, win.ch);
 	}
@@ -1555,8 +1548,16 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 	if (base.mode & ATTR_BOXDRAW) {
 		drawboxes(winx, winy, width / len, win.ch, fg, bg, specs, len);
 	} else {
-		/* Render the glyphs. */
-		XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
+	/* Set the clip region because Xft is sometimes dirty. */
+	r.x = 0;
+	r.y = 0;
+	r.height = win.ch;
+	r.width = win.w;
+	XftDrawSetClipRectangles(xw.draw, 0, winy, &r, 1);
+
+	/* Render the glyphs. */
+	XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
+
 	}
 
 	/* Render underline and strikethrough. */
@@ -2141,8 +2142,8 @@ run(void)
 
 		xev = 0;
 		while (XPending(xw.dpy)) {
-			xev = 1;
 			XNextEvent(xw.dpy, &ev);
+			xev = (!xev || xev == SelectionRequest) ? ev.type : xev;
 			if (XFilterEvent(&ev, None))
 				continue;
 			if (handler[ev.type])
@@ -2164,10 +2165,10 @@ run(void)
 		{
 			if (!drawing) {
 				trigger = now;
-				if (IS_SET(MODE_BLINK)) {
-					win.mode ^= MODE_BLINK;
+				if (xev != SelectionRequest) {
+					win.mode &= ~MODE_BLINK;
+					lastblink = now;
 				}
-				lastblink = now;
 				drawing = 1;
 			}
 			timeout = (maxlatency - TIMEDIFF(now, trigger)) \
