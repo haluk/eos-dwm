@@ -76,7 +76,7 @@
 ;; they are implemented.
 
 ;; literate config can start from here
-;; keybindings
+(load! "helpers")
 (load! "keybindings")
 
 ;; UI
