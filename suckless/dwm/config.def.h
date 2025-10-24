@@ -102,7 +102,7 @@ static char *colors[][ColCount] = {
 
 static const char *const autostart[] = {
 	"slstatus", NULL,
-	"firefox", NULL,
+	"helium", NULL,
 	"editor", NULL,
 	"slack", NULL,
 	NULL /* terminate */
@@ -178,7 +178,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "zoom", .isfloating = 1)
-	RULE(.class = "firefox", .tags = 1 << 0)
+	RULE(.class = "Helium", .tags = 1 << 0)
 	RULE(.class = "Emacs", .tags = 1 << 2)
 	RULE(.class = "Slack", .tags = 1 << 8)
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
