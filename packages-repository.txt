@@ -119,3 +119,4 @@ gitleaks
 webkitgtk-6.0
 atuin
 xorg-xev
+xorg-xhost
