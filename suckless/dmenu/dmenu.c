@@ -59,7 +59,6 @@ static Display *dpy;
 static Window root, parentwin, win;
 static XIC xic;
 
-
 static Drw *drw;
 static Clr *scheme[SchemeLast];
 
@@ -136,11 +135,12 @@ cleanup(void)
 {
 	size_t i;
 
-	XUngrabKey(dpy, AnyKey, AnyModifier, root);
+	XUngrabKeyboard(dpy, CurrentTime);
 	for (i = 0; i < SchemeLast; i++)
-		free(scheme[i]);
-	for (i = 0; items && items[i].text; ++i)
+		drw_scm_free(drw, scheme[i], 2);
+	for (i = 0; items && items[i].text; ++i) {
 		free(items[i].text);
+	}
 	free(items);
 	drw_free(drw);
 	XSync(dpy, False);
@@ -163,8 +163,6 @@ drawitem(struct item *item, int x, int y, int w)
 {
 	int r;
 	char *text = item->text;
-
-
 
 	if (item == sel)
 		drw_setscheme(drw, scheme[SchemeSel]);
@@ -219,17 +217,22 @@ drawmenu(void)
 	}
 
 	curpos = TEXTW(text) - TEXTW(&text[cursor]);
-	if ((curpos += lrpad / 2 - 1) < w) {
+	curpos += lrpad / 2 - 1;
+
+	if (curpos < w) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		drw_rect(drw, x + curpos, 2, 2, bh - 4, 1, 0);
 	}
 
 	recalculatenumbers();
 	rpad = TEXTW(numbers);
+
 	if (lines > 0) {
+
 		/* draw vertical list */
-		for (item = curr; item != next; item = item->right)
+		for (item = curr; item != next; item = item->right) {
 			drawitem(item, x, y += bh, mw - x);
+		}
 	} else if (matches) {
 		/* draw horizontal list */
 		x += inputw;
@@ -254,6 +257,7 @@ drawmenu(void)
 			);
 		}
 	}
+
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_text(drw, mw - rpad, 0, TEXTW(numbers), bh, lrpad / 2, numbers, 0);
 	drw_map(drw, win, 0, 0, mw, mh);
@@ -287,8 +291,9 @@ grabkeyboard(void)
 	/* try to grab keyboard, we may have to wait for another process to ungrab */
 	for (i = 0; i < 1000; i++) {
 		if (XGrabKeyboard(dpy, DefaultRootWindow(dpy), True, GrabModeAsync,
-		                  GrabModeAsync, CurrentTime) == GrabSuccess)
+		                  GrabModeAsync, CurrentTime) == GrabSuccess) {
 			return;
+		}
 		nanosleep(&ts, NULL);
 	}
 	die("cannot grab keyboard");
@@ -366,7 +371,6 @@ insert(const char *str, ssize_t n)
 {
 	if (strlen(text) + n > sizeof text - 1)
 		return;
-
 
 	/* move existing text out of the way, insert new text, and update cursor */
 	memmove(&text[cursor + n], &text[cursor], sizeof text - cursor - MAX(n, 0));
@@ -613,6 +617,7 @@ insert:
 	}
 
 draw:
+
 	drawmenu();
 }
 
@@ -633,7 +638,6 @@ paste(void)
 	}
 	drawmenu();
 }
-
 
 static void
 readstdin(void)
@@ -800,7 +804,6 @@ setup(void)
 	xic = XCreateIC(xim, XNInputStyle, XIMPreeditNothing | XIMStatusNothing,
 	                XNClientWindow, win, XNFocusWindow, win, NULL);
 
-
 	XMapRaised(dpy, win);
 	if (embed) {
 		XReparentWindow(dpy, win, parentwin, x, y);
@@ -917,8 +920,6 @@ main(int argc, char *argv[])
 		die("no fonts could be loaded.");
 
 	lrpad = drw->fonts->h;
-
-
 
 #ifdef __OpenBSD__
 	if (pledge("stdio rpath", NULL) == -1)

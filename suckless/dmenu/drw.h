@@ -1,6 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-
 typedef struct {
 	Cursor cursor;
 } Cur;
@@ -39,10 +38,11 @@ unsigned int drw_fontset_getwidth(Drw *drw, const char *text);
 unsigned int drw_fontset_getwidth_clamp(Drw *drw, const char *text, unsigned int n);
 void drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned int *w, unsigned int *h);
 
-
 /* Colorscheme abstraction */
 void drw_clr_create(Drw *drw, Clr *dest, const char *clrname);
 Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
+void drw_clr_free(Drw *drw, Clr *c);
+void drw_scm_free(Drw *drw, Clr *scm, size_t clrcount);
 
 /* Cursor abstraction */
 Cur *drw_cur_create(Drw *drw, int shape);
