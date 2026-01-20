@@ -180,4 +180,33 @@
               mixtral-8x7b-32768
               gemma-7b-it)))
 
+;; OpenRouter
+(defvar llms-chat-gptel-openrouter-backend
+  (gptel-make-openai "OpenRouter"
+    :host "openrouter.ai"
+    :endpoint "/api/v1/chat/completions"
+    :stream t
+    :key (lambda () (llms-chat--api-key-from-auth-source "openrouter.ai"))
+    :models '(x-ai/grok-4.1-fast:free
+              openai/gpt-3.5-turbo
+              mistralai/mixtral-8x7b-instruct
+              meta-llama/codellama-34b-instruct
+              codellama/codellama-70b-instruct
+              google/palm-2-codechat-bison-32k
+              google/gemini-pro)))
+
+
 (setq gptel-backend llms-chat-gptel-groq-backend)
+;; (setq gptel-backend llms-chat-gptel-openrouter-backend)
+
+;; Aidermacs
+(use-package aidermacs
+  :bind (("C-c a" . aidermacs-transient-menu))
+  :config
+  ;; Pull API key from auth-source at load time
+  (setenv "OPENROUTER_API_KEY"
+          (llms-chat--api-key-from-auth-source "openrouter.ai"))
+  :custom
+  (aidermacs-default-chat-mode 'architect)
+  (aidermacs-default-model "openrouter/xiaomi/mimo-v2-flash:free"))
+

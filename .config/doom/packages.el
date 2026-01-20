@@ -61,3 +61,5 @@
 (package! screenshot
   :recipe (:host github :repo "tecosaur/screenshot"))
 (package! hurl-mode :recipe (:host github :repo "jaszhe/hurl-mode" :files ("*.el")))
+(package! aidermacs)
+(package! insert-random)
