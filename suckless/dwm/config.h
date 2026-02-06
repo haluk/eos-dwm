@@ -102,7 +102,7 @@ static char *colors[][ColCount] = {
 
 static const char *const autostart[] = {
 	"slstatus", NULL,
-	"helium", NULL,
+	"helium-browser", NULL,
 	"editor", NULL,
 	"slack", NULL,
 	NULL /* terminate */
@@ -178,7 +178,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "zoom", .isfloating = 1)
-	RULE(.class = "Helium", .tags = 1 << 0)
+	RULE(.class = "helium", .tags = 1 << 0)
 	RULE(.class = "Emacs", .tags = 1 << 2)
 	RULE(.class = "Slack", .tags = 1 << 8)
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
@@ -210,6 +210,10 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int nstack      = 0;    /* number of clients in primary stack area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
+static const int refreshrate_placemouse = 60; /* refresh rate (per second) for placemouse */
+static const int refreshrate_dragmfact = 40; /* refresh rate (per second) for dragmfact */
+static const int refreshrate_dragcfact = 60; /* refresh rate (per second) for dragcfact */
 static const int decorhints  = 1;    /* 1 means respect decoration hints */
 
 #define FORCE_VSPLIT 1

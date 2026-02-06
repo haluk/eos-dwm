@@ -123,3 +123,4 @@ xorg-xhost
 vulkan-intel
 go
 perl-file-mimeinfo
+ncdu
