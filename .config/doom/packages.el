@@ -63,3 +63,4 @@
 (package! hurl-mode :recipe (:host github :repo "jaszhe/hurl-mode" :files ("*.el")))
 (package! aidermacs)
 (package! insert-random)
+(package! transpose-frame)
