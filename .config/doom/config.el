@@ -208,5 +208,5 @@
           (llms-chat--api-key-from-auth-source "openrouter.ai"))
   :custom
   (aidermacs-default-chat-mode 'architect)
-  (aidermacs-default-model "openrouter/xiaomi/mimo-v2-flash:free"))
+  (aidermacs-default-model "openrouter/meta-llama/llama-3.3-70b-instruct:free"))
 

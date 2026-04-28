@@ -17,3 +17,27 @@ Otherwise, yank all visible text in the buffer."
                                    (point) (min (1+ (point)) end)))))
         (forward-char)))
     (kill-new text)))
+
+(defvar hd/llm-char-map
+  '(("‘" . "'")
+    ("’" . "'")
+    ("“" . "\"")
+    ("”" . "\"")
+    ("—" . "--")
+    ("–" . "-")
+    ("…" . "...")
+    ("•" . "-")))
+
+(defun hd/normalize-llm-text (beg end)
+  "Normalize Unicode characters using `hd/llm-char-map`."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (dolist (pair hd/llm-char-map)
+        (goto-char (point-min))
+        (while (search-forward (car pair) nil t)
+          (replace-match (cdr pair) t t))))))
