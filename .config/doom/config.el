@@ -87,7 +87,13 @@
 ;;   '(mode-line ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95))))
 ;;   '(mode-line-active ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))) ; For 29+
 ;;   '(mode-line-inactive ((t (:family "CaskaydiaCove Nerd Font Mono" :height 0.95)))))
-(add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
+;; (add-hook! '+doom-dashboard-functions (hide-mode-line-mode 1))
+(add-hook! '+doom-dashboard-mode-hook
+  (run-with-idle-timer 0 nil
+    (lambda ()
+      (setq-local mode-line-format nil)
+      (setq-local header-line-format nil)
+      (force-mode-line-update))))
 ;; ace-window font face
 (custom-set-faces!
   '(aw-leading-char-face
@@ -137,7 +143,6 @@
 ;;Editor
 (global-evil-matchit-mode 1)
 (lsp-treemacs-sync-mode 1)
-
 ;; PL
 (use-package uv-mode
   :hook (python-mode . uv-mode-auto-activate-hook))
@@ -209,4 +214,3 @@
   :custom
   (aidermacs-default-chat-mode 'architect)
   (aidermacs-default-model "openrouter/meta-llama/llama-3.3-70b-instruct:free"))
-
