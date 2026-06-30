@@ -104,7 +104,6 @@ static const char *const autostart[] = {
 	"slstatus", NULL,
 	"helium-browser", NULL,
 	"editor", NULL,
-	"slack", NULL,
 	NULL /* terminate */
 };
 

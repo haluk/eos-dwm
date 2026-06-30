@@ -104,7 +104,6 @@ static const char *const autostart[] = {
 	"slstatus", NULL,
 	"helium-browser", NULL,
 	"editor", NULL,
-	"slack", NULL,
 	NULL /* terminate */
 };
 
@@ -180,7 +179,7 @@ static const Rule rules[] = {
 	RULE(.class = "zoom", .isfloating = 1)
 	RULE(.class = "helium", .tags = 1 << 0)
 	RULE(.class = "Emacs", .tags = 1 << 2)
-	RULE(.class = "Slack", .tags = 1 << 8)
+	RULE(.class = "slack", .tags = 1 << 8)
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 };
 
