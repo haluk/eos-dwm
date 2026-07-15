@@ -125,3 +125,4 @@ go
 perl-file-mimeinfo
 ncdu
 iw
+perl-lwp-protocol-https
