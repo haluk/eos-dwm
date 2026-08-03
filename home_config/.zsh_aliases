@@ -1,6 +1,8 @@
 alias weather='curl "wttr.in/?m"'
 alias vim="nvim"
 alias ctc='cat | copy'
+alias ds='sudo systemctl start docker.service'
+alias dx='sudo systemctl stop docker.service'
 alias dc="docker-compose"
 alias lg="lazygit"
 alias book="jupyter-book"
